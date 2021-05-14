@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Jorge Gallego">
+        <meta name="title" content="To Do List">
+        <meta name="keywords" content="Vue, VueJS, Vue 3, VueJS3, Vue app, To Do, To Do List, to do, to do list, vue, vuejs, vue3, vuejs3">
+        <meta name="description" content="Simple To Do List web application built using VueJS 3">
+        <title>To Do List</title>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://unpkg.com/vue@next"></script>
+    </head>
+    <body>
+        <header>
+            <h1>To Do List App</h1>
+        </header>
+        <section id="assignment">
+            <h2>Today's tasks</h2>
+            <!-- 1) Add code to manage a list of tasks in a Vue app -->
+            <!-- When clicking "Add Task" a new task with the entered text should be added -->
+            <input type="text" v-model="newTask" @change="addTask">
+            <button @click="addTask">Add Task</button>
+            <ul v-if="visible">
+                <li v-for="(task, index) in tasks" @click="removeTask(index)" title="Delete task">
+                    {{ task }}
+                </li>
+            </ul>
+            <!-- 3) When the below button is pressed, the list should be shown or hidden -->
+            <!-- BONUS: Also update the button caption -->
+            <button @click="visible = !visible" :disabled="tasks.length === 0">Hide / Show List</button>
+        </section>
+        <script src="app.js"></script>
+    </body>
+</html>
